@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Registration</title>
+
+   
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+
+    <script>
+        setTimeout(function () {
+            var errorMsg = document.getElementById("errorMsg");
+            if (errorMsg) {
+                errorMsg.style.display = "none";
+            }
+        }, 3000);
+    </script>
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-body p-4">
+                    <h3 class="text-center mb-4 ">User Registration</h3>
+
+                
+                    <p th:if="${error}" id="errorMsg" 
+                       class="text-danger text-center font-weight-bold"
+                       th:text="${error}"></p>
+
+                    <form th:action="@{/register}" method="post" th:object="${user}">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" th:field="*{username}" class="form-control" placeholder="Enter username" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label >Password</label>
+                            <input type="password" th:field="*{password}" class="form-control" placeholder="Enter password" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label >Email</label>
+                            <input type="email" th:field="*{email}" class="form-control" placeholder="Enter email" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label >Phone</label>
+                            <input type="text" th:field="*{phone}" class="form-control" placeholder="Enter phone number" required />
+                        </div>
+
+                        <button type="submit" class="btn btn-success btn-block">Register</button>
+                    </form>
+
+                    <hr>
+                    <div class="text-center">
+                        <p class="mb-2">Already have an account?</p>
+                        <a th:href="@{/login}" class="btn btn-outline-primary btn-block">Login</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

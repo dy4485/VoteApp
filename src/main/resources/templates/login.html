@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Login</title>
+ 
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+    <script>
+        setTimeout(function () {
+            var errorMsg = document.getElementById("errorMsg");
+            if (errorMsg) {
+                errorMsg.style.display = "none";
+            }
+        }, 3000);
+    </script>
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow rounded">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">User Login</h3>
+
+                
+                    <p th:if="${error}" id="errorMsg" 
+                       class="text-danger text-center font-weight-bold"
+                       th:text="${error}"></p>
+
+                    <form th:action="@{/login}" method="post">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter password" required>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <div class="text-center">
+                        <p>Don't have an account?</p>
+                        <a th:href="@{/register}" class="btn btn-outline-primary btn-block">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

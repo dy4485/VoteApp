@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vote Submitted</title>
+
+   
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+</head>
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+          
+                <div class="card-body">
+                    <h2 class="text-success mb-3">You have already voted!</h2>
+                    <p class="lead">Thank you for participating in the election.</p>
+                    <div class="text-center">
+
+                    <a th:href="@{/logout}" class="btn btn-danger mt-4">Logout</a>
+                   </div>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
